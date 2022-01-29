@@ -1,1 +1,1 @@
-web: gunicorn nordhealth_backend.wsgi --log-file-
+web: gunicorn nordhealth_backend.wsgi
