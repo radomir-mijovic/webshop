@@ -47,6 +47,8 @@ REST_FRAMEWORK = {
     ]
 }
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3BotoStorage'
+
 
 ROOT_URLCONF = 'nordhealth_backend.urls'
 
@@ -109,4 +111,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#AWS S3 BUCKET SETTINGS
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_QUERYSTRING_AUTH = False
