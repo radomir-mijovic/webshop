@@ -110,6 +110,7 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+STATIC_ROOT = 'staticfiles'
 
 #AWS S3 BUCKET SETTINGS
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
