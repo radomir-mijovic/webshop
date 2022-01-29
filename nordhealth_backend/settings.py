@@ -47,7 +47,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 ROOT_URLCONF = 'nordhealth_backend.urls'
@@ -72,13 +72,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'nordhealth_backend.wsgi.application'
 
 
-# if DEBUG:
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
 
 
 AUTH_PASSWORD_VALIDATORS = [
