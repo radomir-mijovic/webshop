@@ -13,3 +13,4 @@ class ProductsSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({
                 'name': 'Must be at least 4 character long'
             })
+        return attrs
