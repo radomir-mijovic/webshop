@@ -15,6 +15,13 @@ class ProductsListView(ListCreateAPIView):
         'name', 'code'
     ]
 
+    def post(self, request, *args, **kwargs):
+        serializer = ProductsSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, 200)
+        return Response(serializer.errors)
+
 
 class ProductDetailView(RetrieveAPIView):
 
