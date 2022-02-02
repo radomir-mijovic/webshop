@@ -1,0 +1,9 @@
+.env
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+pip-log.txt
+pip-delete-this-directory.txt
+.idea/
