@@ -12,20 +12,20 @@ class ProductsListView(ListCreateAPIView):
         filters.SearchFilter
     ]
     search_fields = [
-        'name', 'code'
+        'name', 'code', 'brand'
     ]
 
     def post(self, request, *args, **kwargs):
         serializer = ProductsSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, 200)
-        return Response(serializer.errors)
+            return Response(serializer.data, 201)
+        return Response(serializer.errors, 400)
 
 
 class ProductDetailView(RetrieveAPIView):
 
     def get(self, request, *args, **kwargs):
-        product = Products.objects.get(id=kwargs['pk'])
+        product = Products.objects.get(slug=kwargs['slug'])
         serializer = ProductsSerializer(product)
         return Response(serializer.data)
