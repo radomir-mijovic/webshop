@@ -8,7 +8,7 @@ class Products(models.Model):
     brand = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     image = models.ImageField(upload_to='images', null=True, blank=True)
-    price = models.FloatField()
+    price = models.DecimalField(max_digits=5, decimal_places=2)
     code = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(blank=True, null=True)
 
