@@ -12,10 +12,8 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 DEBUG = True
 
-if DEBUG:
-    SECRET_KEY = env('SECRET_KEY')
-else:
-    SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
+
 
 ALLOWED_HOSTS = [
     'nordhealth.herokuapp.com',
@@ -90,11 +88,11 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.getenv('NAME'),
-            'HOST': os.getenv('HOST'),
+            'NAME': env('NAME'),
+            'HOST': env('HOST'),
             'PORT': 5432,
-            'USER': os.getenv('USER'),
-            'PASSWORD': os.getenv('PASSWORD')
+            'USER': env('USER'),
+            'PASSWORD': env('PASSWORD')
         }
     }
 
@@ -138,13 +136,8 @@ CORS_ALLOWED_ORIGINS = [
 
 
 #AWS S3 BUCKET SETTINGS
-if DEBUG:
-    AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
-    AWS_QUERYSTRING_AUTH = False
-else:
-    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
-    AWS_QUERYSTRING_AUTH = False
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_QUERYSTRING_AUTH = False
+
